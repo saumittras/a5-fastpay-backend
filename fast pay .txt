@@ -1,0 +1,7 @@
+Entities and Their Attributes:
+ 
+    1. User Data Model 
+    2. Transtion Model
+    3. Wallet Model 
+    
+
