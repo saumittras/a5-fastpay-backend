@@ -10,10 +10,23 @@ router.get(
   checkAuth(Role.ADMIN, Role.SUPER_ADMIN),
   AdminController.getAllUser
 );
+
 router.post(
   "/user-action",
   checkAuth(Role.ADMIN, Role.SUPER_ADMIN),
   AdminController.userBlockUnblock
+);
+
+router.get(
+  "/transactions",
+  checkAuth(Role.ADMIN, Role.SUPER_ADMIN),
+  AdminController.getAllTransactions
+);
+
+router.post(
+  "/agent-action",
+  checkAuth(Role.ADMIN, Role.SUPER_ADMIN),
+  AdminController.approvedSuspendAgent
 );
 
 export const adminRoutes = router;

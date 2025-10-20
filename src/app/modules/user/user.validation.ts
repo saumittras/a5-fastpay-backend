@@ -1,5 +1,5 @@
 import z from "zod";
-import { AccountStatus, Role } from "./user.interface";
+import { Role, status } from "./user.interface";
 
 export const createUserZodSchema = z.object({
   _id: z.string().optional(),
@@ -7,7 +7,6 @@ export const createUserZodSchema = z.object({
     .string({ invalid_type_error: "Name must be string" })
     .min(2, { message: "Name too short" })
     .max(50, { message: "Name too long" }),
-  email: z.string().email().optional(),
   phone: z
     .string({ invalid_type_error: "Address must be String" })
     .regex(/^(?:\+8801\d{9}|01\d{9})$/, {
@@ -29,17 +28,16 @@ export const createUserZodSchema = z.object({
 
   pinNumber: z
     .number({ invalid_type_error: "Name must be string" })
-    .min(6, { message: "Pin Number Must be 6 Digit" })
-    .max(6, { message: "Pin Number Must be 6 Digit" }),
+    .min(4, { message: "Pin Number Must be 6 Digit" })
+    .max(4, { message: "Pin Number Must be 6 Digit" }),
   picture: z.string().optional(),
   address: z
     .string({ invalid_type_error: "Address must be string" })
     .max(200, { message: "Address can notexceed 200 characters" })
     .optional(),
-  isDeleted: z.boolean(),
-  isActive: z.enum(Object.values(AccountStatus) as [string]),
+  accountStatus: z.enum(Object.values(status) as [string]),
+  agentRequest: z.boolean().optional(),
   role: z.enum(Object.values(Role) as [string]),
-  isVerified: z.boolean().optional(),
   createdBy: z.enum(Object.values(Role) as [string]),
 });
 
@@ -48,8 +46,8 @@ export const UpdateUserZodSchema = z.object({
   name: z
     .string({ invalid_type_error: "Name must be string" })
     .min(2, { message: "Name too short" })
-    .max(50, { message: "Name too long" }),
-  email: z.string().email().optional(),
+    .max(50, { message: "Name too long" })
+    .optional(),
   phone: z
     .string({ invalid_type_error: "Address must be String" })
     .regex(/^(?:\+8801\d{9}|01\d{9})$/, {
@@ -73,17 +71,16 @@ export const UpdateUserZodSchema = z.object({
 
   pinNumber: z
     .number({ invalid_type_error: "Name must be string" })
-    .min(6, { message: "Pin Number Must be 6 Digit" })
-    .max(6, { message: "Pin Number Must be 6 Digit" })
+    .min(4, { message: "Pin Number Must be 6 Digit" })
+    .max(4, { message: "Pin Number Must be 6 Digit" })
     .optional(),
   picture: z.string().optional(),
   address: z
     .string({ invalid_type_error: "Address must be string" })
     .max(200, { message: "Address can notexceed 200 characters" })
     .optional(),
-  isDeleted: z.boolean().optional(),
-  isActive: z.enum(Object.values(AccountStatus) as [string]).optional(),
+  accountStatus: z.enum(Object.values(status) as [string]).optional(),
+  agentRequest: z.boolean().optional().optional(),
   role: z.enum(Object.values(Role) as [string]).optional(),
-  isVerified: z.boolean().optional(),
   createdBy: z.enum(Object.values(Role) as [string]).optional(),
 });

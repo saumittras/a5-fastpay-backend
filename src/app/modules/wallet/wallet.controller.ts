@@ -11,7 +11,7 @@ import { sendResponse } from "../../utils/sendResponse";
 const verifyWallet = catchAsync(
   async (req: Request, res: Response, _next: NextFunction) => {
     const body = req.body;
-    console.log("Body", body);
+
     const token = req.headers.authorization;
     if (!token) {
       throw new AppError(403, "No Token Recieved");
@@ -20,7 +20,6 @@ const verifyWallet = catchAsync(
       token,
       envVars.JWT_ACCESS_SECRET
     ) as JwtPayload;
-    console.log(verifiedToken);
 
     sendResponse(res, {
       success: true,
@@ -31,6 +30,7 @@ const verifyWallet = catchAsync(
     });
   }
 );
+
 const changeCurrency = catchAsync(
   async (req: Request, res: Response, _next: NextFunction) => {
     sendResponse(res, {

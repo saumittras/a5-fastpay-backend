@@ -7,26 +7,24 @@ export enum Role {
   AGENT = "AGENT",
 }
 
-export enum AccountStatus {
+export enum status {
   PENDING = "PENDING",
   ACTIVE = "ACTIVE",
+  SUSPEND = "SUSPEND",
   BLOCKED = "BLOCKED",
-  FROZEN = "FROZEN",
-  CLOSED = "CLOSED",
   DELETED = "DELETED",
 }
 
 export interface IUser {
   _id?: ObjectId;
   name: string;
-  // email?: string;
   phone: string;
   password: string;
-  pinNumber: string;
+  pinNumber: number;
   picture?: string;
   address?: string;
-  isActive?: AccountStatus;
-  isNIDVerified?: boolean;
+  accountStatus?: status;
+  agentRequest?: boolean;
   role?: Role;
   createdBy?: Role;
 }

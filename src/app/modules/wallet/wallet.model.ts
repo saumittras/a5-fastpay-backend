@@ -37,6 +37,9 @@ const walletSchema = new Schema<IWallet>({
     enum: Object.values(WalletStatus),
     default: WalletStatus.UNVERIFIED,
   },
+  blockedReason: {
+    type: String,
+  },
   isNIDVerified: {
     type: Boolean,
     default: false,
