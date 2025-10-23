@@ -1,14 +1,20 @@
 import { Router } from "express";
 import { checkAuth } from "../../middlewares/checkAuth";
 import { Role } from "../user/user.interface";
-import { AdminController } from "./adminAuth.controller";
+import { AdminController } from "./admin.controller";
 
 const router = Router();
 
 router.get(
-  "/",
+  "/users",
   checkAuth(Role.ADMIN, Role.SUPER_ADMIN),
   AdminController.getAllUser
+);
+
+router.get(
+  "/wallets",
+  checkAuth(Role.ADMIN, Role.SUPER_ADMIN),
+  AdminController.getAllWallet
 );
 
 router.post(

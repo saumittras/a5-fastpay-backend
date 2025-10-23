@@ -1,10 +1,5 @@
 import { model, Schema } from "mongoose";
-import {
-  CurrencyType,
-  IWallet,
-  WalletStatus,
-  WalletType,
-} from "./wallet.interface";
+import { IWallet, WalletStatus, WalletType } from "./wallet.interface";
 
 const walletSchema = new Schema<IWallet>({
   userId: {
@@ -12,8 +7,8 @@ const walletSchema = new Schema<IWallet>({
     ref: "User",
     required: true,
   },
-  accountNo: {
-    type: Number,
+  walletNo: {
+    type: String,
     unique: true,
     required: true,
   },
@@ -22,11 +17,7 @@ const walletSchema = new Schema<IWallet>({
     required: true,
     default: 50,
   },
-  currency: {
-    type: String,
-    enum: Object.values(CurrencyType),
-    default: CurrencyType.BDT,
-  },
+
   walletType: {
     type: String,
     enum: Object.values(WalletType),

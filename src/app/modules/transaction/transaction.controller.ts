@@ -5,7 +5,6 @@ import { catchAsync } from "../../utils/catchAsync";
 import { sendResponse } from "../../utils/sendResponse";
 import { ITransaction } from "./transaction.interface";
 import { Transaction } from "./transaction.model";
-import { TransactionServices } from "./transaction.service";
 
 export const getTXId = () => {
   return `TX_${Date.now()}_${Math.floor(Math.random() * 1000)}`;
@@ -21,17 +20,17 @@ const sendMoney = catchAsync(
   async (req: Request, res: Response, _next: NextFunction) => {
     const payload = req.body;
 
-    console.log(payload);
+    // console.log(payload);
 
-    const decodedToken = req.user;
+    // const decodedToken = req.user;
 
-    console.log(decodedToken);
+    // console.log(decodedToken);
 
-    const transResult = await TransactionServices.sendMoney(
-      payload,
-      decodedToken
-    );
-    console.log(transResult);
+    // const transResult = await TransactionServices.sendMoney(
+    //   payload,
+    //   decodedToken
+    // );
+    // console.log(transResult);
 
     sendResponse(res, {
       success: true,

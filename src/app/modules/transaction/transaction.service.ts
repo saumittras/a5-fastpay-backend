@@ -34,6 +34,7 @@ const sendMoney = async (payload: Partial<ITransaction>, user: JwtPayload) => {
 
   // const {to, amount} = payload
 };
+
 const addMoney = () => {
   //
 };

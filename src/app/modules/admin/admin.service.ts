@@ -3,10 +3,16 @@ import AppError from "../../errorHelpers/AppError";
 import { Transaction } from "../transaction/transaction.model";
 import { Role, status } from "../user/user.interface";
 import { User } from "../user/user.model";
+import { Wallet } from "../wallet/wallet.model";
 
 const getAllUser = async () => {
   const allUser = await User.find({});
   return allUser;
+};
+
+const getAllWallet = async () => {
+  const wallet = await Wallet.find({});
+  return wallet;
 };
 
 const getAllTransactions = async () => {
@@ -95,4 +101,5 @@ export const AdminServices = {
   userBlockUnblock,
   getAllTransactions,
   approvedSuspendAgent,
+  getAllWallet,
 };

@@ -13,6 +13,7 @@ interface envConfigs {
   BCRYPT_SALT_ROUND: string;
   SUPER_ADMIN_PHONE: string;
   SUPER_ADMIN_PASSWORD: string;
+  SUPER_ADMIN_PIN: string;
 }
 
 const loadEnvVariables = (): envConfigs => {
@@ -27,6 +28,7 @@ const loadEnvVariables = (): envConfigs => {
     "BCRYPT_SALT_ROUND",
     "SUPER_ADMIN_PHONE",
     "SUPER_ADMIN_PASSWORD",
+    "SUPER_ADMIN_PIN",
   ];
 
   requiredEnvVariables.forEach((key) => {
@@ -47,6 +49,7 @@ const loadEnvVariables = (): envConfigs => {
     BCRYPT_SALT_ROUND: process.env.BCRYPT_SALT_ROUND as string,
     SUPER_ADMIN_PHONE: process.env.SUPER_ADMIN_PHONE as string,
     SUPER_ADMIN_PASSWORD: process.env.SUPER_ADMIN_PASSWORD as string,
+    SUPER_ADMIN_PIN: process.env.SUPER_ADMIN_PIN as string,
   };
 };
 

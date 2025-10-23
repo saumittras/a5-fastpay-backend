@@ -14,7 +14,7 @@ export const checkAuth =
       const accessToken = req.headers.authorization;
 
       if (!accessToken) {
-        throw new AppError(403, "No Token Recieved");
+        throw new AppError(403, "No Token Received");
       }
 
       const verifiedToken = verifyToken(
@@ -22,7 +22,7 @@ export const checkAuth =
         envVars.JWT_ACCESS_SECRET
       ) as JwtPayload;
 
-      const isUserExist = await User.findOne({ email: verifiedToken.email });
+      const isUserExist = await User.findOne({ phone: verifiedToken.phone });
 
       if (!isUserExist) {
         throw new AppError(httpStatus.BAD_REQUEST, "User Does Not Exist");

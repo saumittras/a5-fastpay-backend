@@ -70,14 +70,14 @@ export const UpdateUserZodSchema = z.object({
     .optional(),
 
   pinNumber: z
-    .number({ invalid_type_error: "Name must be string" })
-    .min(4, { message: "Pin Number Must be 6 Digit" })
-    .max(4, { message: "Pin Number Must be 6 Digit" })
+    .string({ invalid_type_error: "Name must be string" })
+    .min(4, { message: "Pin Number Must be 4 Digit" })
+    .max(4, { message: "Pin Number Must be 4 Digit" })
     .optional(),
   picture: z.string().optional(),
   address: z
     .string({ invalid_type_error: "Address must be string" })
-    .max(200, { message: "Address can notexceed 200 characters" })
+    .max(200, { message: "Address can not exceed 200 characters" })
     .optional(),
   accountStatus: z.enum(Object.values(status) as [string]).optional(),
   agentRequest: z.boolean().optional().optional(),

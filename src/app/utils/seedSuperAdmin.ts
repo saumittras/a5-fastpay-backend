@@ -19,13 +19,17 @@ export const seedSuperAdmin = async () => {
       Number(envVars.BCRYPT_SALT_ROUND)
     );
 
+    const hashedPin = await bcryptjs.hash(
+      envVars.SUPER_ADMIN_PIN,
+      Number(envVars.BCRYPT_SALT_ROUND)
+    );
+
     const payload: IUser = {
       name: "Super Admin",
       role: Role.SUPER_ADMIN,
       phone: envVars.SUPER_ADMIN_PHONE,
       password: hashedPassword,
-      pinNumber: "12345",
-      isNIDVerified: true,
+      pinNumber: hashedPin,
       createdBy: Role.SUPER_ADMIN,
     };
 

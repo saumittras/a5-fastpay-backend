@@ -7,6 +7,7 @@ import AppError from "../../errorHelpers/AppError";
 import { catchAsync } from "../../utils/catchAsync";
 import { verifyToken } from "../../utils/jwt";
 import { sendResponse } from "../../utils/sendResponse";
+import { WalletServices } from "./wallet.service";
 
 const verifyWallet = catchAsync(
   async (req: Request, res: Response, _next: NextFunction) => {
@@ -31,7 +32,7 @@ const verifyWallet = catchAsync(
   }
 );
 
-const changeCurrency = catchAsync(
+const myTransactions = catchAsync(
   async (req: Request, res: Response, _next: NextFunction) => {
     sendResponse(res, {
       success: true,
@@ -55,8 +56,21 @@ const beAgent = catchAsync(
   }
 );
 
+const checkBalance = catchAsync(
+  async (req: Request, res: Response, _next: NextFunction) => {
+    const result = await WalletServices.checkBalance(req.body);
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.CREATED,
+      message: "User Balance is successfully rettrive ",
+      data: result,
+    });
+  }
+);
+
 export const WalletControllers = {
   verifyWallet,
-  changeCurrency,
+  myTransactions,
   beAgent,
+  checkBalance,
 };

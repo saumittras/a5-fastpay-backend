@@ -4,18 +4,8 @@ import { ITransaction, TX_Status, TX_Type } from "./transaction.interface";
 
 const transactionSchema = new Schema<ITransaction>(
   {
-    from: {
-      type: Schema.Types.ObjectId,
-      ref: "User",
-      required: true,
-    },
     phoneFrom: {
       type: String,
-      required: true,
-    },
-    to: {
-      type: Schema.Types.ObjectId,
-      ref: "User",
       required: true,
     },
     phoneTo: {

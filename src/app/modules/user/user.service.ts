@@ -17,7 +17,7 @@ const createUser = async (payload: Partial<IUser>) => {
   );
 
   const hashPin = await bcryptjs.hash(
-    pinNumber as string,
+    pinNumber?.toString() as string,
     Number(envVars.BCRYPT_SALT_ROUND)
   );
 
@@ -35,7 +35,7 @@ const createUser = async (payload: Partial<IUser>) => {
       accountNo: Number(user?.phone),
     };
 
-    const wallet = await Wallet.create(walletData);
+    await Wallet.create(walletData);
   }
   return user;
 };

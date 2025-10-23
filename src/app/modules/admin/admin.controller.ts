@@ -3,7 +3,7 @@ import { NextFunction, Request, Response } from "express";
 import httpStatus from "http-status-codes";
 import { catchAsync } from "../../utils/catchAsync";
 import { sendResponse } from "../../utils/sendResponse";
-import { AdminServices } from "./adminAuth.service";
+import { AdminServices } from "./admin.service";
 
 const getAllUser = catchAsync(
   async (req: Request, res: Response, _next: NextFunction) => {
@@ -12,8 +12,21 @@ const getAllUser = catchAsync(
     sendResponse(res, {
       success: true,
       statusCode: httpStatus.CREATED,
-      message: "All user data retived",
+      message: "All user data retrieved",
       data: user,
+    });
+  }
+);
+
+const getAllWallet = catchAsync(
+  async (req: Request, res: Response, _next: NextFunction) => {
+    const wallet = await AdminServices.getAllWallet();
+
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.CREATED,
+      message: "All Wallet data retrieved",
+      data: wallet,
     });
   }
 );
@@ -28,7 +41,7 @@ const userBlockUnblock = catchAsync(
     sendResponse(res, {
       success: true,
       statusCode: httpStatus.CREATED,
-      message: "All user data retived",
+      message: `User is ${req.body.action}`,
       data: user,
     });
   }
@@ -41,7 +54,7 @@ const getAllTransactions = catchAsync(
     sendResponse(res, {
       success: true,
       statusCode: httpStatus.CREATED,
-      message: "All Transactions data retived",
+      message: "All Transactions data retrieved",
       data: result,
     });
   }
@@ -68,4 +81,5 @@ export const AdminController = {
   userBlockUnblock,
   getAllTransactions,
   approvedSuspendAgent,
+  getAllWallet,
 };

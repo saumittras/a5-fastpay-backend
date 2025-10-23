@@ -10,9 +10,11 @@ export enum Role {
 export enum status {
   PENDING = "PENDING",
   ACTIVE = "ACTIVE",
-  SUSPEND = "SUSPEND",
   BLOCKED = "BLOCKED",
+  FROZEN = "FROZEN",
+  CLOSED = "CLOSED",
   DELETED = "DELETED",
+  SUSPEND = "SUSPEND",
 }
 
 export interface IUser {
@@ -20,7 +22,7 @@ export interface IUser {
   name: string;
   phone: string;
   password: string;
-  pinNumber: number;
+  pinNumber: string;
   picture?: string;
   address?: string;
   accountStatus?: status;

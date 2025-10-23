@@ -1,11 +1,12 @@
-import { Types } from "mongoose";
+import { ObjectId } from "mongoose";
 import { Role } from "../user/user.interface";
 
 export enum TX_Type {
   ADD_MONEY = "ADD_MONEY",
   WITHDRAW = "WITHDRAW",
   SEND_MONEY = "SEND_MONEY",
-  BILL_PAY = "BILL_PAY",
+  CASH_IN = "CASH_IN",
+  CASH_OUT = "CASH_OUT",
 }
 
 export enum TX_Status {
@@ -16,9 +17,8 @@ export enum TX_Status {
 }
 
 export interface ITransaction {
-  from: Types.ObjectId;
+  _id?: ObjectId;
   phoneFrom: string;
-  to: Types.ObjectId;
   phoneTo: string;
   transactionId: string;
   transactionType: TX_Type;

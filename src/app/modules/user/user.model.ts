@@ -6,7 +6,7 @@ const userSchema = new Schema<IUser>(
     name: { type: String, required: true },
     phone: { type: String, unique: true, required: true },
     password: { type: String, required: true },
-    pinNumber: { type: Number, required: true },
+    pinNumber: { type: String, required: true },
     picture: { type: String },
     address: { type: String },
     accountStatus: {
