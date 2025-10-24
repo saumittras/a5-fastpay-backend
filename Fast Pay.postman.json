@@ -1,0 +1,1251 @@
+{
+    "info": {
+        "name": "Fast Pay",
+        "description": "",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "User",
+            "description": "",
+            "item": [
+                {
+                    "name": "Create A User",
+                    "description": "",
+                    "event": [],
+                    "auth": {},
+                    "request": {
+                        "auth": {},
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"name\": \"Sarker Sarker 2\",\r\n    \"phone\": \"01720323034\",\r\n    \"password\": \"Saumittra#12\",\r\n    \"pinNumber\": \"1234\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/user/create",
+                            "path": [
+                                "api",
+                                "user",
+                                "create"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Success",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/api/user/create",
+                                    "path": [
+                                        "api",
+                                        "user",
+                                        "create"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n    \"name\": \"Sarker Sarker 2\",\r\n    \"phone\": \"01720323034\",\r\n    \"password\": \"Saumittra#12\",\r\n    \"pinNumber\": \"1234\"\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "cookie": []
+                        }
+                    ],
+                    "protocolProfileBehavior": {
+                        "strictSSL": false,
+                        "followRedirects": true
+                    }
+                }
+            ],
+            "event": [
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "exec": [],
+                        "type": "text/javascript",
+                        "packages": {}
+                    }
+                },
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [],
+                        "type": "text/javascript",
+                        "packages": {}
+                    }
+                }
+            ],
+            "auth": {}
+        },
+        {
+            "name": "Auth",
+            "description": "",
+            "item": [
+                {
+                    "name": "login",
+                    "description": "",
+                    "event": [],
+                    "auth": {},
+                    "request": {
+                        "auth": {},
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "\r\n// Super Admin\r\n// {\r\n//     \"phone\": \"01724705735\",\r\n//     \"password\": \"Saumittra#12\"\r\n// }\r\n// Agent\r\n{\r\n    \"phone\": \"01724705735\",\r\n    \"password\": \"Saumittra#12\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/auth/login",
+                            "path": [
+                                "api",
+                                "auth",
+                                "login"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Success",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/api/auth/login",
+                                    "path": [
+                                        "api",
+                                        "auth",
+                                        "login"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "\r\n// Super Admin\r\n// {\r\n//     \"phone\": \"01724705735\",\r\n//     \"password\": \"Saumittra#12\"\r\n// }\r\n// Agent\r\n{\r\n    \"phone\": \"01724705735\",\r\n    \"password\": \"Saumittra#12\"\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "text"
+                                        }
+                                    }
+                                }
+                            },
+                            "cookie": []
+                        }
+                    ],
+                    "protocolProfileBehavior": {
+                        "strictSSL": false,
+                        "followRedirects": true
+                    }
+                },
+                {
+                    "name": "Reset Password",
+                    "description": "",
+                    "event": [],
+                    "auth": {},
+                    "request": {
+                        "auth": {},
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \r\n    \"oldPassword\": \"Saumittra#12\",\r\n    \"newPassword\": \"Saumittra#123\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODc1NGJhYzk3NzJhYmJiMDBjMjNjMzEiLCJlbWFpbCI6InN1cGVyQGFkbWluLmNvbSIsInJvbGUiOiJTVVBFUl9BRE1JTiIsImlhdCI6MTc1MjYwNDMyNCwiZXhwIjoxNzUyNjkwNzI0fQ.MtqJR2xTH_iVKiifuOq2pFZKHaC5XNJQAAVCa5sKFII",
+                                "description": "",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/auth/reset-password",
+                            "path": [
+                                "api",
+                                "auth",
+                                "reset-password"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Success",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODc1NGJhYzk3NzJhYmJiMDBjMjNjMzEiLCJlbWFpbCI6InN1cGVyQGFkbWluLmNvbSIsInJvbGUiOiJTVVBFUl9BRE1JTiIsImlhdCI6MTc1MjYwNDMyNCwiZXhwIjoxNzUyNjkwNzI0fQ.MtqJR2xTH_iVKiifuOq2pFZKHaC5XNJQAAVCa5sKFII",
+                                        "description": "",
+                                        "disabled": false
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/api/auth/reset-password",
+                                    "path": [
+                                        "api",
+                                        "auth",
+                                        "reset-password"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n    \r\n    \"oldPassword\": \"Saumittra#12\",\r\n    \"newPassword\": \"Saumittra#123\"\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "cookie": []
+                        }
+                    ],
+                    "protocolProfileBehavior": {
+                        "strictSSL": false,
+                        "followRedirects": true
+                    }
+                },
+                {
+                    "name": "login Out",
+                    "description": "",
+                    "event": [],
+                    "auth": {},
+                    "request": {
+                        "auth": {},
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"email\": \"super@admin.com\",\r\n    \"password\": \"Sasumittra#12\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/auth/logout",
+                            "path": [
+                                "api",
+                                "auth",
+                                "logout"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Success",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/api/auth/logout",
+                                    "path": [
+                                        "api",
+                                        "auth",
+                                        "logout"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n    \"email\": \"super@admin.com\",\r\n    \"password\": \"Sasumittra#12\"\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "cookie": []
+                        }
+                    ],
+                    "protocolProfileBehavior": {
+                        "strictSSL": false,
+                        "followRedirects": true
+                    }
+                },
+                {
+                    "name": "Refresh Token/ New Access token",
+                    "description": "",
+                    "event": [],
+                    "auth": {},
+                    "request": {
+                        "auth": {},
+                        "method": "POST",
+                        "body": {},
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/auth/refresh-token",
+                            "path": [
+                                "api",
+                                "auth",
+                                "refresh-token"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Success",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{baseUrl}}/api/auth/refresh-token",
+                                    "path": [
+                                        "api",
+                                        "auth",
+                                        "refresh-token"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "body": {}
+                            },
+                            "cookie": []
+                        }
+                    ],
+                    "protocolProfileBehavior": {
+                        "strictSSL": false,
+                        "followRedirects": true
+                    }
+                }
+            ],
+            "event": [
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "exec": [],
+                        "type": "text/javascript",
+                        "packages": {}
+                    }
+                },
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [],
+                        "type": "text/javascript",
+                        "packages": {}
+                    }
+                }
+            ],
+            "auth": {}
+        },
+        {
+            "name": "Admin",
+            "description": "",
+            "item": [
+                {
+                    "name": "Get All user",
+                    "description": "",
+                    "event": [],
+                    "auth": {},
+                    "request": {
+                        "auth": {},
+                        "method": "GET",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"name\": \"Ratna Sarker\",\r\n    \"phone\": \"01720323034\",\r\n    \"password\": \"Saumittra#123\",\r\n    \"pinNumber\": \"12345\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmNWM3MzNmN2MxMDBhZWVjNzMwNTUiLCJwaG9uZSI6IjAxNzYxMzYzNzM4Iiwicm9sZSI6IlNVUEVSX0FETUlOIiwiaWF0IjoxNzYxMTQxMTY5LCJleHAiOjE3NjM3MzMxNjl9.Q6OnqE2_c5KVjz_FMxC3QW-r7kesUfTDefOaGAL7R3g",
+                                "description": "",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/admin/users",
+                            "path": [
+                                "api",
+                                "admin",
+                                "users"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Success",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmNWM3MzNmN2MxMDBhZWVjNzMwNTUiLCJwaG9uZSI6IjAxNzYxMzYzNzM4Iiwicm9sZSI6IlNVUEVSX0FETUlOIiwiaWF0IjoxNzYxMTQxMTY5LCJleHAiOjE3NjM3MzMxNjl9.Q6OnqE2_c5KVjz_FMxC3QW-r7kesUfTDefOaGAL7R3g",
+                                        "description": "",
+                                        "disabled": false
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/api/admin/users",
+                                    "path": [
+                                        "api",
+                                        "admin",
+                                        "users"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n    \"name\": \"Ratna Sarker\",\r\n    \"phone\": \"01720323034\",\r\n    \"password\": \"Saumittra#123\",\r\n    \"pinNumber\": \"12345\"\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "cookie": []
+                        }
+                    ],
+                    "protocolProfileBehavior": {
+                        "strictSSL": false,
+                        "followRedirects": true
+                    }
+                },
+                {
+                    "name": "Get All wallet",
+                    "description": "",
+                    "event": [],
+                    "auth": {},
+                    "request": {
+                        "auth": {},
+                        "method": "GET",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"name\": \"Ratna Sarker\",\r\n    \"phone\": \"01720323034\",\r\n    \"password\": \"Saumittra#123\",\r\n    \"pinNumber\": \"12345\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmNWM3MzNmN2MxMDBhZWVjNzMwNTUiLCJwaG9uZSI6IjAxNzYxMzYzNzM4Iiwicm9sZSI6IlNVUEVSX0FETUlOIiwiaWF0IjoxNzYxMTQxMTY5LCJleHAiOjE3NjM3MzMxNjl9.Q6OnqE2_c5KVjz_FMxC3QW-r7kesUfTDefOaGAL7R3g",
+                                "description": "",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/admin/wallets",
+                            "path": [
+                                "api",
+                                "admin",
+                                "wallets"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Success",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmNWM3MzNmN2MxMDBhZWVjNzMwNTUiLCJwaG9uZSI6IjAxNzYxMzYzNzM4Iiwicm9sZSI6IlNVUEVSX0FETUlOIiwiaWF0IjoxNzYxMTQxMTY5LCJleHAiOjE3NjM3MzMxNjl9.Q6OnqE2_c5KVjz_FMxC3QW-r7kesUfTDefOaGAL7R3g",
+                                        "description": "",
+                                        "disabled": false
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/api/admin/wallets",
+                                    "path": [
+                                        "api",
+                                        "admin",
+                                        "wallets"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n    \"name\": \"Ratna Sarker\",\r\n    \"phone\": \"01720323034\",\r\n    \"password\": \"Saumittra#123\",\r\n    \"pinNumber\": \"12345\"\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "cookie": []
+                        }
+                    ],
+                    "protocolProfileBehavior": {
+                        "strictSSL": false,
+                        "followRedirects": true
+                    }
+                },
+                {
+                    "name": "Get All transations",
+                    "description": "",
+                    "event": [],
+                    "auth": {},
+                    "request": {
+                        "auth": {},
+                        "method": "GET",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"name\": \"Ratna Sarker\",\r\n    \"phone\": \"01720323034\",\r\n    \"password\": \"Saumittra#123\",\r\n    \"pinNumber\": \"12345\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmNWM3MzNmN2MxMDBhZWVjNzMwNTUiLCJwaG9uZSI6IjAxNzYxMzYzNzM4Iiwicm9sZSI6IlNVUEVSX0FETUlOIiwiaWF0IjoxNzYwODY3MTQzLCJleHAiOjE3NjA4NzA3NDN9.vGXQeEe1klWLFN3Ail27dHqHvD-Jf_ZdfKbYDoEpkO4",
+                                "description": "",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/admin/transactions",
+                            "path": [
+                                "api",
+                                "admin",
+                                "transactions"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Success",
+                            "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmNWM3MzNmN2MxMDBhZWVjNzMwNTUiLCJwaG9uZSI6IjAxNzYxMzYzNzM4Iiwicm9sZSI6IlNVUEVSX0FETUlOIiwiaWF0IjoxNzYwODY3MTQzLCJleHAiOjE3NjA4NzA3NDN9.vGXQeEe1klWLFN3Ail27dHqHvD-Jf_ZdfKbYDoEpkO4",
+                                        "description": "",
+                                        "disabled": false
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/api/admin/transactions",
+                                    "path": [
+                                        "api",
+                                        "admin",
+                                        "transactions"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n    \"name\": \"Ratna Sarker\",\r\n    \"phone\": \"01720323034\",\r\n    \"password\": \"Saumittra#123\",\r\n    \"pinNumber\": \"12345\"\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "cookie": []
+                        }
+                    ],
+                    "protocolProfileBehavior": {
+                        "strictSSL": false,
+                        "followRedirects": true
+                    }
+                },
+                {
+                    "name": "User Block or Unblock",
+                    "description": "",
+                    "event": [],
+                    "auth": {},
+                    "request": {
+                        "auth": {},
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"id\": \"688bb0d7a0b1d9f6a0cb61ac\",\r\n    \"action\": \"block\"\r\n    \r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmNWM3MzNmN2MxMDBhZWVjNzMwNTUiLCJwaG9uZSI6IjAxNzYxMzYzNzM4Iiwicm9sZSI6IlNVUEVSX0FETUlOIiwiaWF0IjoxNzYwODgzMzQ4LCJleHAiOjE3NjA4ODY5NDh9.VTyUUm5f5T0PT2jDBN-qSBW30KtrwFEm3DWU3Imwr9k",
+                                "description": "",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/admin/user-action",
+                            "path": [
+                                "api",
+                                "admin",
+                                "user-action"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Success",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmNWM3MzNmN2MxMDBhZWVjNzMwNTUiLCJwaG9uZSI6IjAxNzYxMzYzNzM4Iiwicm9sZSI6IlNVUEVSX0FETUlOIiwiaWF0IjoxNzYwODgzMzQ4LCJleHAiOjE3NjA4ODY5NDh9.VTyUUm5f5T0PT2jDBN-qSBW30KtrwFEm3DWU3Imwr9k",
+                                        "description": "",
+                                        "disabled": false
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/api/admin/user-action",
+                                    "path": [
+                                        "api",
+                                        "admin",
+                                        "user-action"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n    \"id\": \"688bb0d7a0b1d9f6a0cb61ac\",\r\n    \"action\": \"block\"\r\n    \r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "cookie": []
+                        }
+                    ],
+                    "protocolProfileBehavior": {
+                        "strictSSL": false,
+                        "followRedirects": true
+                    }
+                },
+                {
+                    "name": "Agent Approve or Suspend",
+                    "description": "",
+                    "event": [],
+                    "auth": {},
+                    "request": {
+                        "auth": {},
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"walletNo\": \"01720323039\",\r\n    \"action\": \"approve\"    \r\n}\r\n",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmNWM3MzNmN2MxMDBhZWVjNzMwNTUiLCJwaG9uZSI6IjAxNzYxMzYzNzM4Iiwicm9sZSI6IlNVUEVSX0FETUlOIiwiaWF0IjoxNzYwOTg1MDQxLCJleHAiOjE3NjA5ODg2NDF9.AsNIDzhXvfLKtokKN_URVwGCXvu2rt8n2dF91JZ1LyI",
+                                "description": "",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/admin/agent-action",
+                            "path": [
+                                "api",
+                                "admin",
+                                "agent-action"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Success",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmNWM3MzNmN2MxMDBhZWVjNzMwNTUiLCJwaG9uZSI6IjAxNzYxMzYzNzM4Iiwicm9sZSI6IlNVUEVSX0FETUlOIiwiaWF0IjoxNzYwOTg1MDQxLCJleHAiOjE3NjA5ODg2NDF9.AsNIDzhXvfLKtokKN_URVwGCXvu2rt8n2dF91JZ1LyI",
+                                        "description": "",
+                                        "disabled": false
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/api/admin/agent-action",
+                                    "path": [
+                                        "api",
+                                        "admin",
+                                        "agent-action"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n    \"id\": \"688f8a82e50d10923f02dd06\",\r\n    \"action\": \"approve\"\r\n    \r\n}\r\n// {\r\n//     \"id\": \"68f521c9c8f3554899ab7cd7\",\r\n//     \"action\": \"suspend\"\r\n    \r\n// }\r\n// {\r\n//     \"id\": \"68f521c9c8f3554899ab7cd7\",\r\n//     \"action\": \"active\"\r\n    \r\n// }",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "cookie": []
+                        }
+                    ],
+                    "protocolProfileBehavior": {
+                        "strictSSL": false,
+                        "followRedirects": true
+                    }
+                }
+            ],
+            "event": [
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "exec": [],
+                        "type": "text/javascript",
+                        "packages": {}
+                    }
+                },
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [],
+                        "type": "text/javascript",
+                        "packages": {}
+                    }
+                }
+            ],
+            "auth": {}
+        },
+        {
+            "name": "Agent",
+            "description": "",
+            "item": [
+                {
+                    "name": "Cash In by Agent",
+                    "description": "",
+                    "event": [],
+                    "auth": {},
+                    "request": {
+                        "auth": {},
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n  \"agentNo\": \"01720323034\",\r\n  \"userNo\": \"01724705735\",\r\n  \"amount\": \"500\",\r\n  \"pinNumber\": \"1234\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmOGE4MmU1MGQxMDkyM2YwMmRkMDYiLCJwaG9uZSI6IjAxNzI0NzA1NzM1Iiwicm9sZSI6IkFHRU5UIiwiaWF0IjoxNzYxMjEwNDQ4LCJleHAiOjE3NjM4MDI0NDh9.E8F5vS6S8dpu-Dt10NUaBMydZKJh8W9ddUlFWLF5xWQ",
+                                "description": "",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/agent-wallet/cash-in",
+                            "path": [
+                                "api",
+                                "agent-wallet",
+                                "cash-in"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Success",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmOGE4MmU1MGQxMDkyM2YwMmRkMDYiLCJwaG9uZSI6IjAxNzI0NzA1NzM1Iiwicm9sZSI6IkFHRU5UIiwiaWF0IjoxNzYxMjEwNDQ4LCJleHAiOjE3NjM4MDI0NDh9.E8F5vS6S8dpu-Dt10NUaBMydZKJh8W9ddUlFWLF5xWQ",
+                                        "description": "",
+                                        "disabled": false
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/api/agent-wallet/cash-in",
+                                    "path": [
+                                        "api",
+                                        "agent-wallet",
+                                        "cash-in"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n  \"agentNo\": \"01720323034\",\r\n  \"userNo\": \"01724705735\",\r\n  \"amount\": \"500\",\r\n  \"pinNumber\": \"1234\"\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "cookie": []
+                        }
+                    ],
+                    "protocolProfileBehavior": {
+                        "strictSSL": false,
+                        "followRedirects": true
+                    }
+                },
+                {
+                    "name": "Cash Out by Agent",
+                    "description": "",
+                    "event": [],
+                    "auth": {},
+                    "request": {
+                        "auth": {},
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n  \"agentNo\": \"01720323034\",\r\n  \"userNo\": \"01724705735\",\r\n  \"amount\": \"5000\",\r\n  \"pinNumber\": \"12345\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmOGE4MmU1MGQxMDkyM2YwMmRkMDYiLCJwaG9uZSI6IjAxNzI0NzA1NzM1Iiwicm9sZSI6IkFHRU5UIiwiaWF0IjoxNzYxMjEwNDQ4LCJleHAiOjE3NjM4MDI0NDh9.E8F5vS6S8dpu-Dt10NUaBMydZKJh8W9ddUlFWLF5xWQ",
+                                "description": "",
+                                "type": "string"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/agent-wallet/cash-out",
+                            "path": [
+                                "api",
+                                "agent-wallet",
+                                "cash-out"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Success",
+                            "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Authorization",
+                                        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODhmOGE4MmU1MGQxMDkyM2YwMmRkMDYiLCJwaG9uZSI6IjAxNzI0NzA1NzM1Iiwicm9sZSI6IkFHRU5UIiwiaWF0IjoxNzYxMjEwNDQ4LCJleHAiOjE3NjM4MDI0NDh9.E8F5vS6S8dpu-Dt10NUaBMydZKJh8W9ddUlFWLF5xWQ",
+                                        "description": "",
+                                        "disabled": false
+                                    }
+                                ],
+                                "url": {
+                                    "raw": "{{baseUrl}}/api/agent-wallet/cash-out",
+                                    "path": [
+                                        "api",
+                                        "agent-wallet",
+                                        "cash-out"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n  \"agentNo\": \"01720323034\",\r\n  \"userNo\": \"01724705735\",\r\n  \"amount\": \"5000\",\r\n  \"pinNumber\": \"12345\"\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                }
+                            },
+                            "cookie": []
+                        }
+                    ],
+                    "protocolProfileBehavior": {
+                        "strictSSL": false,
+                        "followRedirects": true
+                    }
+                }
+            ],
+            "event": [
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "exec": [],
+                        "type": "text/javascript",
+                        "packages": {}
+                    }
+                },
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [],
+                        "type": "text/javascript",
+                        "packages": {}
+                    }
+                }
+            ],
+            "auth": {}
+        },
+        {
+            "name": "User Wallet",
+            "description": "",
+            "item": [
+                {
+                    "name": "test",
+                    "description": "",
+                    "event": [],
+                    "auth": {},
+                    "request": {
+                        "auth": {},
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"name\": \"Sarker Sarker 3\",\r\n    \"phone\": \"01720323035\",\r\n    \"password\": \"Saumittra#12\",\r\n    \"pinNumber\": \"1234\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/test/test",
+                            "path": [
+                                "api",
+                                "test",
+                                "test"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        }
+                    },
+                    "response": [],
+                    "protocolProfileBehavior": {
+                        "strictSSL": false,
+                        "followRedirects": true
+                    }
+                },
+                {
+                    "name": "Send Money By User",
+                    "description": "",
+                    "event": [],
+                    "auth": {},
+                    "request": {
+                        "auth": {},
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n  \"agentNo\": \"01724705735\",\r\n  \"userNo\": \"01720323035\",\r\n  \"amount\": \"500\",\r\n  \"pinNumber\": \"1234\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/test/send-money",
+                            "path": [
+                                "api",
+                                "test",
+                                "send-money"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        }
+                    },
+                    "response": [],
+                    "protocolProfileBehavior": {
+                        "strictSSL": false,
+                        "followRedirects": true
+                    }
+                },
+                {
+                    "name": "Withdraw Money By User",
+                    "description": "",
+                    "event": [],
+                    "auth": {},
+                    "request": {
+                        "auth": {},
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n  \"agentNo\": \"01724705735\",\r\n  \"userNo\": \"01720323034\",\r\n  \"amount\": \"500\",\r\n  \"pinNumber\": \"1234\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/test/withdraw-Money",
+                            "path": [
+                                "api",
+                                "test",
+                                "withdraw-Money"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        }
+                    },
+                    "response": [],
+                    "protocolProfileBehavior": {
+                        "strictSSL": false,
+                        "followRedirects": true
+                    }
+                },
+                {
+                    "name": "Add Money By User",
+                    "description": "",
+                    "event": [],
+                    "auth": {},
+                    "request": {
+                        "auth": {},
+                        "method": "POST",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n  \"agentNo\": \"01724705735\",\r\n  \"userNo\": \"01720323034\",\r\n  \"amount\": \"500\",\r\n  \"pinNumber\": \"1234\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/test/withdraw-Money",
+                            "path": [
+                                "api",
+                                "test",
+                                "withdraw-Money"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        }
+                    },
+                    "response": [],
+                    "protocolProfileBehavior": {
+                        "strictSSL": false,
+                        "followRedirects": true
+                    }
+                },
+                {
+                    "name": "Add Money By User Copy",
+                    "description": "",
+                    "event": [],
+                    "auth": {},
+                    "request": {
+                        "auth": {},
+                        "method": "GET",
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n  \"walletNo\": \"01724705735\"\r\n  \r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/test/Transactions",
+                            "path": [
+                                "api",
+                                "test",
+                                "Transactions"
+                            ],
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "query": [],
+                            "variable": []
+                        }
+                    },
+                    "response": [],
+                    "protocolProfileBehavior": {
+                        "strictSSL": false,
+                        "followRedirects": true
+                    }
+                }
+            ],
+            "event": [
+                {
+                    "listen": "prerequest",
+                    "script": {
+                        "exec": [],
+                        "type": "text/javascript",
+                        "packages": {}
+                    }
+                },
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [],
+                        "type": "text/javascript",
+                        "packages": {}
+                    }
+                }
+            ],
+            "auth": {}
+        }
+    ],
+    "variable": [],
+    "event": [],
+    "auth": {}
+}
