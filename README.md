@@ -220,14 +220,12 @@ npm start
 
 ### Example Login JSON
 
-````json
+```json
 {
-    "phone": "01724705735",
-    "password": "Saumittra#12"
+  "phone": "01724705735",
+  "password": "Saumittra#12"
 }
 ```
-
-
 
 ### Important Links
 
@@ -237,4 +235,7 @@ Explanation Video: <a href='https://drive.google.com/drive/folders/1jSynwgexK76B
 Video Link: https://drive.google.com/drive/folders/1jSynwgexK76BIwUbgvSenjC11EOYRTDD?usp=sharing
 Readme:<a href='https://github.com/saumittras/a5-fastpay-backend/blob/main/README.md'>Link</a>
 Postman JSON:<a href='https://github.com/saumittras/a5-fastpay-backend/blob/main/Fast%20Pay.postman.json'>Postman JSON</a>
-````
+
+```
+
+```
