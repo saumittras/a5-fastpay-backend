@@ -231,9 +231,8 @@ npm start
 
 GitHub Repository: <a href='https://github.com/saumittras/a5-fastpay-backend'>Link</a><br>
 Live Deployment: <a href='https://a5-fastpay-backend.vercel.app'>Link</a></br>
-Explanation Video: <a href='https://drive.google.com/drive/folders/1jSynwgexK76BIwUbgvSenjC11EOYRTDD?usp=sharing'>Link</a>
-Video Link: https://drive.google.com/drive/folders/1jSynwgexK76BIwUbgvSenjC11EOYRTDD?usp=sharing
-Readme:<a href='https://github.com/saumittras/a5-fastpay-backend/blob/main/README.md'>Link</a>
+Explanation Video: <a href='https://drive.google.com/drive/folders/1jSynwgexK76BIwUbgvSenjC11EOYRTDD?usp=sharing'>Link</a></br>
+Readme:<a href='https://github.com/saumittras/a5-fastpay-backend/blob/main/README.md'>Link</a></br>
 Postman JSON:<a href='https://github.com/saumittras/a5-fastpay-backend/blob/main/Fast%20Pay.postman.json'>Postman JSON</a>
 
 ```
