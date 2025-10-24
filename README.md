@@ -207,11 +207,33 @@ npm start
 | POST   | `/api/test/withdraw-Money` | Withdraw money                        |
 | GET    | `/api/test/Transactions`   | Get all transactions by wallet number |
 
+### Example User JSON
+
+```json
+{
+  "name": "Sarker Sarker 2",
+  "phone": "01720323034",
+  "password": "Saumittra#12",
+  "pinNumber": "1234"
+}
+```
+
+### Example Login JSON
+
+````json
+{
+    "phone": "01724705735",
+    "password": "Saumittra#12"
+}```
+
+
+
 ### Important Links
 
-GitHub Repository: <a href='https://github.com/saumittras/fastPay'>Link</a><br>
-Live Deployment: <a href='fastpay-b5a5.vercel.app'>Link</a></br>
+GitHub Repository: <a href='https://github.com/saumittras/a5-fastpay-backend'>Link</a><br>
+Live Deployment: <a href='https://a5-fastpay-backend.vercel.app'>Link</a></br>
 Explanation Video: <a href='https://drive.google.com/drive/folders/1jSynwgexK76BIwUbgvSenjC11EOYRTDD?usp=sharing'>Link</a>
 Video Link: https://drive.google.com/drive/folders/1jSynwgexK76BIwUbgvSenjC11EOYRTDD?usp=sharing
-Readme:<a href='https://github.com/saumittras/fastPay/blob/main/README.md'>Link</a>
-Postman JSON:<a href='https://github.com/saumittras/fastPay/blob/main/Fast%20Pay.postman_collection.json'>Link</a>
+Readme:<a href='https://github.com/saumittras/a5-fastpay-backend/blob/main/README.md'>Link</a>
+Postman JSON:<a href='https://github.com/saumittras/a5-fastpay-backend/blob/main/Fast%20Pay.postman.json'>Postman JSON</a>
+````
