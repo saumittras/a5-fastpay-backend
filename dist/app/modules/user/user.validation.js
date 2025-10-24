@@ -30,17 +30,17 @@ exports.createUserZodSchema = zod_1.default.object({
         message: "Password must contain at least 1 number",
     }),
     pinNumber: zod_1.default
-        .number({ invalid_type_error: "Name must be string" })
-        .min(4, { message: "Pin Number Must be 6 Digit" })
-        .max(4, { message: "Pin Number Must be 6 Digit" }),
+        .string({ invalid_type_error: "Name must be string" })
+        .min(4, { message: "Pin Number Must be 4 Digit" })
+        .max(4, { message: "Pin Number Must be 4Digit" }),
     picture: zod_1.default.string().optional(),
     address: zod_1.default
         .string({ invalid_type_error: "Address must be string" })
-        .max(200, { message: "Address can notexceed 200 characters" })
+        .max(200, { message: "Address can note exceed 200 characters" })
         .optional(),
     accountStatus: zod_1.default.enum(Object.values(user_interface_1.status)),
     agentRequest: zod_1.default.boolean().optional(),
-    role: zod_1.default.enum(Object.values(user_interface_1.Role)),
+    role: zod_1.default.enum(Object.values(user_interface_1.Role)).optional(),
     createdBy: zod_1.default.enum(Object.values(user_interface_1.Role)),
 });
 exports.UpdateUserZodSchema = zod_1.default.object({

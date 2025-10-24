@@ -3,7 +3,7 @@ import { Types } from "mongoose";
 export enum WalletType {
   USER = "USER",
   AGENT = "AGENT",
-  PENDINGAGENT = "PENDINGAGENT",
+  PENDING_AGENT = "PENDING_AGENT",
 }
 
 export enum WalletStatus {
@@ -18,9 +18,9 @@ export interface IWallet {
   userId: Types.ObjectId;
   walletNo: string;
   pinNumber: string;
-  balance: number;
-  walletType: WalletType;
-  walletStatus: WalletStatus;
+  balance?: number;
+  walletType?: WalletType;
+  walletStatus?: WalletStatus;
   blockedReason?: string;
-  isNIDVerified: boolean;
+  isNIDVerified?: boolean;
 }

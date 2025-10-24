@@ -6,7 +6,8 @@ var TX_Type;
     TX_Type["ADD_MONEY"] = "ADD_MONEY";
     TX_Type["WITHDRAW"] = "WITHDRAW";
     TX_Type["SEND_MONEY"] = "SEND_MONEY";
-    TX_Type["BILL_PAY"] = "BILL_PAY";
+    TX_Type["CASH_IN"] = "CASH_IN";
+    TX_Type["CASH_OUT"] = "CASH_OUT";
 })(TX_Type || (exports.TX_Type = TX_Type = {}));
 var TX_Status;
 (function (TX_Status) {

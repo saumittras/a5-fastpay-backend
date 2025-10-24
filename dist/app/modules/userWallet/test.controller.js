@@ -12,34 +12,58 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AgentController = void 0;
+exports.TestController = void 0;
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
 const catchAsync_1 = require("../../utils/catchAsync");
 const sendResponse_1 = require("../../utils/sendResponse");
-const agent_service_1 = require("./agent.service");
-const cashIn = (0, catchAsync_1.catchAsync)(
+const test_service_1 = require("./test.service");
+const sendMoney = (0, catchAsync_1.catchAsync)(
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 (req, res, _next) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield agent_service_1.AgentService.cashIn(req.body);
+    const result = yield test_service_1.UserWalletService.sendMoney(req.body);
     (0, sendResponse_1.sendResponse)(res, {
         success: true,
         statusCode: http_status_codes_1.default.CREATED,
-        message: `Cash In Successfully Completed`,
+        message: `Money sent Successfully Completed`,
         data: result,
     });
 }));
-const cashOut = (0, catchAsync_1.catchAsync)(
+const withdrawMoney = (0, catchAsync_1.catchAsync)(
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 (req, res, _next) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield agent_service_1.AgentService.cashOut(req.body);
+    const result = yield test_service_1.UserWalletService.withdrawMoney(req.body);
     (0, sendResponse_1.sendResponse)(res, {
         success: true,
         statusCode: http_status_codes_1.default.CREATED,
-        message: "Cash Out Successfully Completed",
+        message: `Withdraw Money Successfully Completed`,
         data: result,
     });
 }));
-exports.AgentController = {
-    cashIn,
-    cashOut,
+const addMoney = (0, catchAsync_1.catchAsync)(
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+(req, res, _next) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield test_service_1.UserWalletService.addMoney(req.body);
+    (0, sendResponse_1.sendResponse)(res, {
+        success: true,
+        statusCode: http_status_codes_1.default.CREATED,
+        message: `Add Money Successfully Completed`,
+        data: result,
+    });
+}));
+const myTransaction = (0, catchAsync_1.catchAsync)(
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+(req, res, _next) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield test_service_1.UserWalletService.myTransaction(req.body.walletNo);
+    (0, sendResponse_1.sendResponse)(res, {
+        success: true,
+        statusCode: http_status_codes_1.default.CREATED,
+        message: `All User Transaction reterived Completed`,
+        data: result,
+    });
+}));
+exports.TestController = {
+    sendMoney,
+    withdrawMoney,
+    addMoney,
+    myTransaction,
 };

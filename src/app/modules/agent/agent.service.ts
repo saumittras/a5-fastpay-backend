@@ -1,4 +1,4 @@
-// import bcryptjs from "bcryptjs";
+import bcryptjs from "bcryptjs";
 import AppError from "../../errorHelpers/AppError";
 import { getTXId } from "../transaction/transaction.controller";
 import { TX_Status, TX_Type } from "../transaction/transaction.interface";
@@ -43,12 +43,12 @@ const cashIn = async (payload: ICashIn) => {
     throw new AppError(403, "Agent PIN not found. Please set your PIN first.");
   }
 
-  // const isPinNoMatch = await bcryptjs.compare(
-  //   pinNumber as string,
-  //   isAgentExist?.pinNumber as string
-  // );
+  const isPinNoMatch = await bcryptjs.compare(
+    pinNumber as string,
+    isAgentExist?.pinNumber as string
+  );
 
-  // if (!isPinNoMatch) throw new AppError(403, "PIN Number does not match");
+  if (!isPinNoMatch) throw new AppError(403, "PIN Number does not match");
 
   if ((isAgentWalExist.balance ?? 0) < amount)
     throw new AppError(403, "You don't have enough balance");
@@ -143,12 +143,12 @@ const cashOut = async (payload: ICashIn) => {
     throw new AppError(403, "Agent PIN not found. Please set your PIN first.");
   }
 
-  // const isPinNoMatch = await bcryptjs.compare(
-  //   pinNumber as string,
-  //   isAgentExist?.pinNumber as string
-  // );
+  const isPinNoMatch = await bcryptjs.compare(
+    pinNumber as string,
+    isAgentExist?.pinNumber as string
+  );
 
-  // if (!isPinNoMatch) throw new AppError(403, "PIN Number does not match");
+  if (!isPinNoMatch) throw new AppError(403, "PIN Number does not match");
 
   if ((isUserWalExist.balance ?? 0) < totalAmount)
     throw new AppError(403, "You don't have enough balance");

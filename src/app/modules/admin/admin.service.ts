@@ -20,8 +20,8 @@ const getAllTransactions = async () => {
   return allTransactions;
 };
 
-const userBlockUnblock = async (userId: string, action: string) => {
-  const isUserExist = await User.findById(userId);
+const userBlockUnblock = async (walletNo: string, action: string) => {
+  const isUserExist = await User.findOne({ phone: walletNo });
   if (!isUserExist) {
     throw new AppError(httpStatus.NOT_FOUND, "User Not Found");
   }
@@ -36,15 +36,15 @@ const userBlockUnblock = async (userId: string, action: string) => {
   }
 
   const payload = { accountStatus: userAction };
-  const result = await User.findByIdAndUpdate(userId, payload, {
+  const result = await User.findByIdAndUpdate(isUserExist?.id, payload, {
     new: true,
   });
 
   return result;
 };
 
-const approvedSuspendAgent = async (id: string, action: string) => {
-  const isAgentExist = await User.findById(id);
+const approvedSuspendAgent = async (walletNo: string, action: string) => {
+  const isAgentExist = await User.findOne({ phone: walletNo });
   if (!isAgentExist) {
     throw new AppError(httpStatus.NOT_FOUND, "User Not Found");
   }
@@ -57,7 +57,7 @@ const approvedSuspendAgent = async (id: string, action: string) => {
     if (action.toLowerCase() === "approve") {
       agentAction = Role.AGENT;
       const result = await User.findByIdAndUpdate(
-        id,
+        isAgentExist?.id,
         { role: agentAction },
         { new: true }
       );
@@ -72,7 +72,7 @@ const approvedSuspendAgent = async (id: string, action: string) => {
     if (action.toLowerCase() === "suspend") {
       agentAction = status.SUSPEND;
       const result = await User.findByIdAndUpdate(
-        id,
+        isAgentExist?.id,
         { accountStatus: agentAction },
         { new: true }
       );
@@ -87,7 +87,7 @@ const approvedSuspendAgent = async (id: string, action: string) => {
     if (action.toLowerCase() === "active") {
       agentAction = status.ACTIVE;
       const result = await User.findByIdAndUpdate(
-        id,
+        isAgentExist?.id,
         { accountStatus: agentAction },
         { new: true }
       );

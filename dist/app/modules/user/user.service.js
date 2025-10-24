@@ -27,21 +27,23 @@ exports.UserServices = void 0;
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const env_1 = require("../../config/env");
 const wallet_model_1 = require("../wallet/wallet.model");
-const user_interface_1 = require("./user.interface");
 const user_model_1 = require("./user.model");
 const createUser = (payload) => __awaiter(void 0, void 0, void 0, function* () {
-    const { phone, password, pinNumber } = payload, rest = __rest(payload, ["phone", "password", "pinNumber"]);
+    const { name, phone, password, pinNumber } = payload, rest = __rest(payload, ["name", "phone", "password", "pinNumber"]);
     const isUserExist = yield user_model_1.User.findOne({ phone: phone });
     if (isUserExist) {
         throw new Error("User Already Exist");
     }
     const hashPassword = yield bcryptjs_1.default.hash(password, Number(env_1.envVars.BCRYPT_SALT_ROUND));
     const hashPin = yield bcryptjs_1.default.hash(pinNumber === null || pinNumber === void 0 ? void 0 : pinNumber.toString(), Number(env_1.envVars.BCRYPT_SALT_ROUND));
-    const user = yield user_model_1.User.create(Object.assign({ phone: phone, password: hashPassword, pinNumber: hashPin, createdBy: user_interface_1.Role.USER }, rest));
+    const user = yield user_model_1.User.create(Object.assign({ name: name, phone: phone, password: hashPassword, pinNumber: hashPin }, rest));
     if (user) {
         const walletData = {
             userId: user === null || user === void 0 ? void 0 : user._id,
-            accountNo: Number(user === null || user === void 0 ? void 0 : user.phone),
+            walletNo: user === null || user === void 0 ? void 0 : user.phone,
+            pinNumber: hashPin,
+            walletType: user === null || user === void 0 ? void 0 : user.role,
+            walletStatus: user === null || user === void 0 ? void 0 : user.accountStatus,
         };
         yield wallet_model_1.Wallet.create(walletData);
     }

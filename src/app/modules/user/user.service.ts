@@ -1,11 +1,11 @@
 import bcryptjs from "bcryptjs";
 import { envVars } from "../../config/env";
 import { Wallet } from "../wallet/wallet.model";
-import { IUser, Role } from "./user.interface";
+import { IUser } from "./user.interface";
 import { User } from "./user.model";
 
 const createUser = async (payload: Partial<IUser>) => {
-  const { phone, password, pinNumber, ...rest } = payload;
+  const { name, phone, password, pinNumber, ...rest } = payload;
   const isUserExist = await User.findOne({ phone: phone });
   if (isUserExist) {
     throw new Error("User Already Exist");
@@ -22,17 +22,20 @@ const createUser = async (payload: Partial<IUser>) => {
   );
 
   const user = await User.create({
+    name: name,
     phone: phone,
     password: hashPassword,
     pinNumber: hashPin,
-    createdBy: Role.USER,
     ...rest,
   });
 
   if (user) {
     const walletData = {
       userId: user?._id,
-      accountNo: Number(user?.phone),
+      walletNo: user?.phone,
+      pinNumber: hashPin,
+      walletType: user?.role,
+      walletStatus: user?.accountStatus,
     };
 
     await Wallet.create(walletData);

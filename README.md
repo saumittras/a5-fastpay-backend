@@ -142,7 +142,7 @@ SUPER_ADMIN_PASSWORD = 'Your_credintials'
 
 <p>Development Mode (with hot-reload):</p>
 
-``` 
+```
 npm run dev
 ```
 
@@ -156,22 +156,56 @@ npm run build
 npm start
 ```
 
-### 📬 Transction Endpoints
+## 📘 API Endpoints
 
-| Method | Endpoint         | Description         |
-| ------ | ---------------- | ------------------- |
-| GET    | `/api/books`     | Get all books       |
-| GET    | `/api/books/:id` | Get a single book   |
-| POST   | `/api/books`     | Create a new book   |
-| PATCH  | `/api/books/:id` | Update a book by ID |
-| DELETE | `/api/books/:id` | Delete a book by ID |
+### 👤 User Routes
 
-### User Create
+| Method | Endpoint           | Description       |
+| ------ | ------------------ | ----------------- |
+| POST   | `/api/user/create` | Create a new user |
 
-| Method | Endpoint      | Description                   |
-| ------ | ------------- | ----------------------------- |
-| POST   | `/api/borrow` | Borrow a book                 |
-| GET    | `/api/borrow` | Get summary of borrowed books |
+---
+
+### 🔐 Auth Routes
+
+| Method | Endpoint                   | Description                             |
+| ------ | -------------------------- | --------------------------------------- |
+| POST   | `/api/auth/login`          | Login as Super Admin, Agent, or User    |
+| POST   | `/api/auth/reset-password` | Reset password (requires Authorization) |
+| POST   | `/api/auth/logout`         | Logout user                             |
+| POST   | `/api/auth/refresh-token`  | Generate new access token               |
+
+---
+
+### 🛠️ Admin Routes
+
+| Method | Endpoint                  | Description                 |
+| ------ | ------------------------- | --------------------------- |
+| GET    | `/api/admin/users`        | Get all users               |
+| GET    | `/api/admin/wallets`      | Get all wallets             |
+| GET    | `/api/admin/transactions` | Get all transactions        |
+| POST   | `/api/admin/user-action`  | Block or Unblock a user     |
+| POST   | `/api/admin/agent-action` | Approve or Suspend an agent |
+
+---
+
+### 💼 Agent Wallet Routes
+
+| Method | Endpoint                     | Description       |
+| ------ | ---------------------------- | ----------------- |
+| POST   | `/api/agent-wallet/cash-in`  | Cash in by agent  |
+| POST   | `/api/agent-wallet/cash-out` | Cash out by agent |
+
+---
+
+### 💳 User Wallet / Test Routes
+
+| Method | Endpoint                   | Description                           |
+| ------ | -------------------------- | ------------------------------------- |
+| POST   | `/api/test/test`           | Test user creation                    |
+| POST   | `/api/test/send-money`     | Send money                            |
+| POST   | `/api/test/withdraw-Money` | Withdraw money                        |
+| GET    | `/api/test/Transactions`   | Get all transactions by wallet number |
 
 ### Important Links
 

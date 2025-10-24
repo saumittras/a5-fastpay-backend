@@ -36,7 +36,7 @@ const getAllWallet = (0, catchAsync_1.catchAsync)((req, res, _next) => __awaiter
     });
 }));
 const userBlockUnblock = (0, catchAsync_1.catchAsync)((req, res, _next) => __awaiter(void 0, void 0, void 0, function* () {
-    const user = yield admin_service_1.AdminServices.userBlockUnblock(req.body.id, req.body.action);
+    const user = yield admin_service_1.AdminServices.userBlockUnblock(req.body.walletNo, req.body.action);
     (0, sendResponse_1.sendResponse)(res, {
         success: true,
         statusCode: http_status_codes_1.default.CREATED,
@@ -54,7 +54,7 @@ const getAllTransactions = (0, catchAsync_1.catchAsync)((req, res, _next) => __a
     });
 }));
 const approvedSuspendAgent = (0, catchAsync_1.catchAsync)((req, res, _next) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield admin_service_1.AdminServices.approvedSuspendAgent(req.body.id, req.body.action);
+    const result = yield admin_service_1.AdminServices.approvedSuspendAgent(req.body.walletNo, req.body.action);
     (0, sendResponse_1.sendResponse)(res, {
         success: true,
         statusCode: http_status_codes_1.default.CREATED,

@@ -31,8 +31,8 @@ const getAllTransactions = () => __awaiter(void 0, void 0, void 0, function* () 
     const allTransactions = yield transaction_model_1.Transaction.find();
     return allTransactions;
 });
-const userBlockUnblock = (userId, action) => __awaiter(void 0, void 0, void 0, function* () {
-    const isUserExist = yield user_model_1.User.findById(userId);
+const userBlockUnblock = (walletNo, action) => __awaiter(void 0, void 0, void 0, function* () {
+    const isUserExist = yield user_model_1.User.findOne({ phone: walletNo });
     if (!isUserExist) {
         throw new AppError_1.default(http_status_codes_1.default.NOT_FOUND, "User Not Found");
     }
@@ -47,13 +47,13 @@ const userBlockUnblock = (userId, action) => __awaiter(void 0, void 0, void 0, f
         throw new AppError_1.default(http_status_codes_1.default.BAD_REQUEST, "Invalid action");
     }
     const payload = { accountStatus: userAction };
-    const result = yield user_model_1.User.findByIdAndUpdate(userId, payload, {
+    const result = yield user_model_1.User.findByIdAndUpdate(isUserExist === null || isUserExist === void 0 ? void 0 : isUserExist.id, payload, {
         new: true,
     });
     return result;
 });
-const approvedSuspendAgent = (id, action) => __awaiter(void 0, void 0, void 0, function* () {
-    const isAgentExist = yield user_model_1.User.findById(id);
+const approvedSuspendAgent = (walletNo, action) => __awaiter(void 0, void 0, void 0, function* () {
+    const isAgentExist = yield user_model_1.User.findOne({ phone: walletNo });
     if (!isAgentExist) {
         throw new AppError_1.default(http_status_codes_1.default.NOT_FOUND, "User Not Found");
     }
@@ -62,7 +62,7 @@ const approvedSuspendAgent = (id, action) => __awaiter(void 0, void 0, void 0, f
         isAgentExist.role === user_interface_1.Role.USER) {
         if (action.toLowerCase() === "approve") {
             agentAction = user_interface_1.Role.AGENT;
-            const result = yield user_model_1.User.findByIdAndUpdate(id, { role: agentAction }, { new: true });
+            const result = yield user_model_1.User.findByIdAndUpdate(isAgentExist === null || isAgentExist === void 0 ? void 0 : isAgentExist.id, { role: agentAction }, { new: true });
             return result;
         }
     }
@@ -70,7 +70,7 @@ const approvedSuspendAgent = (id, action) => __awaiter(void 0, void 0, void 0, f
         isAgentExist.role === user_interface_1.Role.AGENT) {
         if (action.toLowerCase() === "suspend") {
             agentAction = user_interface_1.status.SUSPEND;
-            const result = yield user_model_1.User.findByIdAndUpdate(id, { accountStatus: agentAction }, { new: true });
+            const result = yield user_model_1.User.findByIdAndUpdate(isAgentExist === null || isAgentExist === void 0 ? void 0 : isAgentExist.id, { accountStatus: agentAction }, { new: true });
             return result;
         }
     }
@@ -78,7 +78,7 @@ const approvedSuspendAgent = (id, action) => __awaiter(void 0, void 0, void 0, f
         isAgentExist.role === user_interface_1.Role.AGENT) {
         if (action.toLowerCase() === "active") {
             agentAction = user_interface_1.status.ACTIVE;
-            const result = yield user_model_1.User.findByIdAndUpdate(id, { accountStatus: agentAction }, { new: true });
+            const result = yield user_model_1.User.findByIdAndUpdate(isAgentExist === null || isAgentExist === void 0 ? void 0 : isAgentExist.id, { accountStatus: agentAction }, { new: true });
             return result;
         }
     }

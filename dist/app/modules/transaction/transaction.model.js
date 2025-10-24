@@ -5,18 +5,8 @@ const mongoose_1 = require("mongoose");
 const user_interface_1 = require("../user/user.interface");
 const transaction_interface_1 = require("./transaction.interface");
 const transactionSchema = new mongoose_1.Schema({
-    from: {
-        type: mongoose_1.Schema.Types.ObjectId,
-        ref: "User",
-        required: true,
-    },
     phoneFrom: {
         type: String,
-        required: true,
-    },
-    to: {
-        type: mongoose_1.Schema.Types.ObjectId,
-        ref: "User",
         required: true,
     },
     phoneTo: {

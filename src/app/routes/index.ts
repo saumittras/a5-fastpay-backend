@@ -2,9 +2,10 @@ import { Router } from "express";
 import { adminRoutes } from "../modules/admin/admin.route";
 import { agentRoutes } from "../modules/agent/agent.route";
 import { AuthRoutes } from "../modules/auth/auth.route";
+// import { testRoute } from "../modules/userWallet/test.route";
 import { TransactionRoutes } from "../modules/transaction/transaction.route";
 import { UserRoutes } from "../modules/user/user.route";
-import { walletUserRoutes } from "../modules/walletUser/walletUser.route";
+import { testRoute } from "../modules/userWallet/test.route";
 
 export const router = Router();
 
@@ -26,8 +27,8 @@ const moduleRoutes = [
     route: adminRoutes,
   },
   {
-    path: "/user-wallet",
-    route: walletUserRoutes,
+    path: "/test",
+    route: testRoute,
   },
   {
     path: "/agent-wallet",

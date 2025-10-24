@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.testRoute = void 0;
+const express_1 = require("express");
+const test_controller_1 = require("./test.controller");
+const router = (0, express_1.Router)();
+router.post("/send-money", test_controller_1.TestController.sendMoney);
+router.post("/withdraw-Money", test_controller_1.TestController.withdrawMoney);
+router.post("/add-Money", test_controller_1.TestController.withdrawMoney);
+router.get("/transactions", test_controller_1.TestController.myTransaction);
+exports.testRoute = router;

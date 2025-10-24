@@ -34,7 +34,7 @@ const getAllWallet = catchAsync(
 const userBlockUnblock = catchAsync(
   async (req: Request, res: Response, _next: NextFunction) => {
     const user = await AdminServices.userBlockUnblock(
-      req.body.id,
+      req.body.walletNo,
       req.body.action
     );
 
@@ -63,7 +63,7 @@ const getAllTransactions = catchAsync(
 const approvedSuspendAgent = catchAsync(
   async (req: Request, res: Response, _next: NextFunction) => {
     const result = await AdminServices.approvedSuspendAgent(
-      req.body.id,
+      req.body.walletNo,
       req.body.action
     );
 

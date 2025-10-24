@@ -10,7 +10,7 @@ const walletSchema = new mongoose_1.Schema({
         required: true,
     },
     walletNo: {
-        type: Number,
+        type: String,
         unique: true,
         required: true,
     },

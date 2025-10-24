@@ -5,7 +5,7 @@ var WalletType;
 (function (WalletType) {
     WalletType["USER"] = "USER";
     WalletType["AGENT"] = "AGENT";
-    WalletType["PENDINGAGENT"] = "PENDINGAGENT";
+    WalletType["PENDING_AGENT"] = "PENDING_AGENT";
 })(WalletType || (exports.WalletType = WalletType = {}));
 var WalletStatus;
 (function (WalletStatus) {
