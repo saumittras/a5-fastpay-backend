@@ -224,7 +224,8 @@ npm start
 {
     "phone": "01724705735",
     "password": "Saumittra#12"
-}```
+}
+```
 
 
 
