@@ -227,6 +227,33 @@ npm start
 }
 ```
 
+### admin:
+
+```json
+{
+  "phone": "01761363738",
+  "password": "Saumittra#12"
+}
+```
+
+### Agent:
+
+```json
+{
+  "phone": "01720323034",
+  "password": "Saumittra#12"
+}
+```
+
+### User:
+
+```json
+{
+  "phone": "01724705735",
+  "password": "Saumittra#12"
+}
+```
+
 ### Important Links
 
 GitHub Repository: <a href='https://github.com/saumittras/a5-fastpay-backend'>Link</a><br>
